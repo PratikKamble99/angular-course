@@ -1,6 +1,7 @@
 <div>
-    <p>Counter Value: {{ counter()}}</p>
-    <button (click)="increment()">Increment</button>
-    <button (click)="decrement()">Decrement</button>
-    <button (click)="reset()">Reset</button>
+  <!-- <p>Counter Value: {{ counter()}}</p> -->
+  <p>Counter Value: {{ count$ | async }}</p>
+  <button (click)="increment()">Increment</button>
+  <button (click)="decrement()">Decrement</button>
+  <button (click)="reset()">Reset</button>
 </div>
