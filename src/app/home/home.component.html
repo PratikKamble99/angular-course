@@ -1,6 +1,16 @@
-<!-- <p>home works</p> -->
+<h2>home component</h2>
 <!-- this is how to pass data from parent to child component. You want to use string interpolation to pass data -->
 <!-- [] is used to pass parent components data in child components. And this meanse it expects javascript statment -->
-<!-- <app-greeting [message]="homeMessage()" /> -->
-<!-- <input type="number" (keyup)="keyupHandler($event)"/> -->
+<hr />
+<h2>Props and Signals example</h2>
+<app-greeting [message]="homeMessage()" />
+<input type="number" (keyup)="keyupHandler($event)" />
 <app-counter />
+<hr />
+<h2>Observable Example</h2>
+<div>
+  @for (item of data; track $index) {
+  <p>{{ item }}</p>
+  }
+</div>
+<button (click)="subscribeObserver()">Get Data from observable</button>
