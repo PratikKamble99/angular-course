@@ -6,7 +6,7 @@
       <div class="input-box">
         <input type="text" placeholder="Username" formControlName="username" />
         <small
-          *ngIf="reactiveForm.get('username').errors?.['required'] && reactiveForm.get('firstname').touched"
+          *ngIf="reactiveForm?.get('username').errors?.['required'] && reactiveForm?.get('firstname')?.touched"
         >
           *Username is a required field.
         </small>
@@ -15,15 +15,21 @@
         <input type="text" placeholder="Password" formControlName="password" />
         <small
           *ngIf="
-            reactiveForm.get('password').invalid &&
-            reactiveForm.get('password').touched
+            reactiveForm?.get('password')?.invalid &&
+            reactiveForm?.get('password')?.touched
           "
         >
           Password is a required field.
         </small>
       </div>
     </div>
-
+    <div class="column">
+      <app-input-field
+        [type]="'text'"
+        [control]="getRoleControl()"
+        [placeholder]="'role'"
+      />
+    </div>
     <input type="submit" value="Submit" class="submit-btn" />
     <!-- [disabled]="!reactiveForm.valid" -->
   </form>

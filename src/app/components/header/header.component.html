@@ -8,7 +8,9 @@
         Login
       </li>
       <!-- <li routerLink="/register">Register</li> -->
-      <div *ngIf="authService.currUserSig()">
+      <div *ngIf="authService.currUserSig()" class="nav-list">
+        <li routerLink="/user-dashboard">User</li>
+        <li routerLink="/admin-dashboard">Admin</li>
         <li routerLink="/todos">Todos</li>
         <li (click)="logout()">Logout</li>
       </div>
