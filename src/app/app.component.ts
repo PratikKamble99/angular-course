@@ -49,7 +49,7 @@ export class AppComponent {
 
   userService = inject(UserService);
   PLATFORM_ID$ = inject(PLATFORM_ID);
-  // authService = inject(AuthService);
+  authService = inject(AuthService);
 
   ngOnInit() {
     let token = undefined;
@@ -58,26 +58,27 @@ export class AppComponent {
     // if (isPlatformBrowser(this.PLATFORM_ID$)) {
     //   token = localStorage.getItem('token');
     // }
-    runInInjectionContext(this.injector, () => {
-      afterNextRender(() => {
-        token = localStorage.getItem('token');
-      });
-    });
+    // runInInjectionContext(this.injector, () => {
+    //   afterNextRender(() => {
+    //     token = localStorage.getItem('token');
+    //   });
+    // });
 
     console.log(token);
 
-    if (token) {
-      this.userService
-        .getUser()
-        .pipe(
-          catchError((err) => {
-            console.log(err);
-            throw err;
-          })
-        )
-        .subscribe((res) => {
-          console.log(res);
-        });
-    }
+    // if (token) {
+    this.userService
+      .getUser()
+      .pipe(
+        catchError((err) => {
+          console.log(err);
+          throw err;
+        })
+      )
+      .subscribe((res) => {
+        this.authService.currUserSig.set(res);
+        console.log(res);
+      });
+    // }
   }
 }

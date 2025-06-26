@@ -66,7 +66,7 @@ export class HomeComponent {
     });
   }
 
-  showModal = true;
+  showModal = false;
 
   openModal() {
     this.showModal = true;
