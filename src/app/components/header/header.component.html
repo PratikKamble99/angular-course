@@ -1,10 +1,17 @@
 <header>
-    <nav>
-        <p routerLink="/">
-            {{ title() }}
-        </p>
-        <ul>
-            <li routerLink="/todos"> Todos</li>
-        </ul>
-    </nav>
-</header>   
+  <nav>
+    <p routerLink="/">
+      {{ title() }}
+    </p>
+    <ul>
+      <li routerLink="/login" *ngIf="authService.currUserSig() == null">
+        Login
+      </li>
+      <!-- <li routerLink="/register">Register</li> -->
+      <div *ngIf="authService.currUserSig()">
+        <li routerLink="/todos">Todos</li>
+        <li (click)="logout()">Logout</li>
+      </div>
+    </ul>
+  </nav>
+</header>

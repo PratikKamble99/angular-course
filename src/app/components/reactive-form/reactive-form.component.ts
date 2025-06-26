@@ -8,10 +8,11 @@ import {
   Validators,
 } from '@angular/forms';
 import { CustomValidators } from '../../validators/customValidators';
+import { InputFieldComponent } from '../../shared/input-field/input-field.component';
 
 @Component({
   selector: 'app-reactive-form',
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, InputFieldComponent],
   templateUrl: './reactive-form.component.html',
   styleUrl: './reactive-form.component.scss',
 })
@@ -50,6 +51,10 @@ export class ReactiveFormComponent {
       skills: new FormArray([new FormControl(null, Validators.required)]),
       experience: new FormArray([]),
     });
+  }
+
+  get firstnameControl(): FormControl {
+    return this.reactiveForm.get('firstname') as FormControl;
   }
 
   OnFormSubmitted() {

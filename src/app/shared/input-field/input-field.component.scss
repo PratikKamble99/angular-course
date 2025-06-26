@@ -1,0 +1,17 @@
+.form-group {
+  margin-bottom: 1rem;
+
+  input {
+    height: 50px;
+    width: 100%;
+  }
+}
+
+.is-invalid {
+  border: 1px solid red;
+}
+
+.invalid-feedback {
+  color: red;
+  font-size: 0.85rem;
+}

@@ -2,10 +2,17 @@ import { Component, signal } from '@angular/core';
 import { GreetingComponent } from '../components/greeting/greeting.component';
 import { CounterComponent } from '../components/counter/counter.component';
 import { from, Observable, of } from 'rxjs';
+import { ButtonComponent } from '../shared/button/button.component';
+import { ModalComponent } from '../shared/modal/modal.component';
 
 @Component({
   selector: 'app-home',
-  imports: [GreetingComponent, CounterComponent],
+  imports: [
+    GreetingComponent,
+    CounterComponent,
+    ButtonComponent,
+    ModalComponent,
+  ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
@@ -57,6 +64,20 @@ export class HomeComponent {
       // completion event
       complete: () => console.log('Completed data streaming'),
     });
+  }
+
+  showModal = true;
+
+  openModal() {
+    this.showModal = true;
+  }
+
+  closeModal() {
+    this.showModal = false;
+  }
+
+  doSomething() {
+    console.log('Button clicked');
   }
 }
 

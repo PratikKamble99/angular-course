@@ -1,0 +1,21 @@
+<div class="form-group">
+  <label>{{ label }}</label>
+  <input
+    [type]="type"
+    [placeholder]="placeholder"
+    class="form-control"
+    [formControl]="control"
+    [ngClass]="{ 'is-invalid': control.invalid && control.touched }"
+  />
+
+  <div class="invalid-feedback" *ngIf="control.touched && control.errors">
+    <span *ngIf="control.errors['required']">This field is required.</span>
+    <span *ngIf="control.errors['minlength']"
+      >Minimum length is {{ control.errors["minlength"].requiredLength }}.</span
+    >
+    <span *ngIf="control.errors['maxlength']"
+      >Maximum length is {{ control.errors["maxlength"].requiredLength }}.</span
+    >
+    <span *ngIf="control.errors['email']">Invalid email format.</span>
+  </div>
+</div>

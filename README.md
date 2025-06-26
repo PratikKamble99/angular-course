@@ -113,3 +113,11 @@ Syntax: ng generate component <path>/<component-name>
             }
 
 }
+
+# @inject
+
+    @Inject is a decorator used for manual dependency injection.
+
+# CommonModule
+
+    It gives access to all commons directives like @ngif ...
